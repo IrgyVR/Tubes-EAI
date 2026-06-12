@@ -1,0 +1,26 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Gundam Kit Inventory API",
+        "description": "Anaheim Electronics Warehouse API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/kits": {
+            "get": {
+                "tags": ["Kits"],
+                "summary": "Get a list of all Gundam kits",
+                "responses": {
+                    "200": { "description": "Successful operation" }
+                }
+            },
+            "post": {
+                "tags": ["Kits"],
+                "summary": "Add a new Gundam kit",
+                "responses": {
+                    "201": { "description": "Kit successfully created" }
+                }
+            }
+        }
+    }
+}

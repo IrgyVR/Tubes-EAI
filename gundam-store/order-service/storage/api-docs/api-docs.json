@@ -1,0 +1,20 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Gundam Order Service API",
+        "description": "Handles transaction logic and kit validation",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/orders": {
+            "post": {
+                "tags": ["Orders"],
+                "summary": "Place a new Gundam order",
+                "responses": {
+                    "201": { "description": "Order placed successfully" },
+                    "400": { "description": "Out of stock or invalid data" }
+                }
+            }
+        }
+    }
+}
