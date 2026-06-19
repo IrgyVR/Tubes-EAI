@@ -39,10 +39,18 @@ Route::any('/orders/{path?}', function (Request $request, $path = null) {
 })->where('path', '.*');
 
 Route::post('/checkout', function (Request $request) {
-    $response = Http::acceptJson()->post('http://kit-service:8000/api/checkout', $request->all());
+    $kitResponse = Http::acceptJson()->post('http://kit-service:8000/api/checkout', $request->all());
 
-    return response($response->body(), $response->status())
-        ->header('Access-Control-Allow-Origin', '*')
-        ->header('Access-Control-Allow-Methods', '*')
-        ->header('Access-Control-Allow-Headers', '*');
+    $financeResponse = Http::post('http://finance-service:8003', $request->all());
+
+    $xmlData = simplexml_load_string($financeResponse->body());
+    $financeMessage = (string) $xmlData->Message;
+
+    return response()->json([
+        'inventory_status' => 'Stock updated',
+        'finance_status' => $financeMessage
+    ])
+    ->header('Access-Control-Allow-Origin', '*')
+    ->header('Access-Control-Allow-Methods', '*')
+    ->header('Access-Control-Allow-Headers', '*');
 });

@@ -1,0 +1,13 @@
+--- NEW TRANSACTION ---
+<?xml version="1.0" encoding="UTF-8"?>
+<FinanceRecord>
+  <Status>Success</Status>
+  <System>Legacy Accounting v1.0</System>
+  <Transaction>
+    <Items>RX-78-2 Gundam, Gundam Exia</Items>
+    <TotalRevenue>Rp 1.400.000</TotalRevenue>
+  </Transaction>
+  <Message>Logged Rp 1.400.000 for items: RX-78-2 Gundam, Gundam Exia</Message>
+  <Timestamp>2026-06-19 03:03:52</Timestamp>
+</FinanceRecord>
+

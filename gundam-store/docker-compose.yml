@@ -27,3 +27,12 @@ services:
       - ./api-gateway:/app
     working_dir: /app
     command: php artisan serve --host=0.0.0.0 --port=8002
+
+  finance-service:
+    image: php:8.2-cli
+    ports:
+      - "8003:8003"
+    volumes:
+      - ./finance-service:/app
+    working_dir: /app
+    command: php -S 0.0.0.0:8003
